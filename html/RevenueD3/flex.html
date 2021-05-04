@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="d3.js"></script>
+    <html>
+ <head>
+    <style>
+    {
+        box-sizing: border-box;
+    }
+    /* Set additional styling options for the columns*/
+    .column {
+    float: left;
+    width: 50%;
+    }
+
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    </style>
+ </head>
+ <body>
+    <div class="row">
+        <div class="column" style="background-color:#FFB695;">
+            <h2>Column 1</h2>
+            <p>Data..</p>
+            <script type="text/javascript">
+
+                //Width and height
+                var w = 442;
+                var h = 250;
+                
+                var dataset = [ 34.2, 48.1, 61.1, 74.5, 89, 107, 136, 177.9, 232.9, 280.5, 386.1 ];
+                
+                var xScale = d3.scaleBand()
+                                                .domain(d3.range(dataset.length))
+                                                .rangeRound([0, w])
+                    .paddingInner(.1);
+                   
+
+                var yScale = d3.scaleLinear()
+                                                .domain([0, d3.max(dataset)])
+                                                .range([0, h]);
+                
+                //Create SVG element
+                var svg = d3.select("body")
+                                        .append("svg")
+                                        .attr("width", w)
+                                        .attr("height", h);
+
+                //Create bars
+                svg.selectAll("rect")
+                   .data(dataset)
+                   .enter()
+                   .append("rect")
+                   .attr("x", function(d, i) {
+                                   return xScale(i);
+                   })
+                   .attr("y", function(d) {
+                                   return h - yScale(d);
+                   })
+                   .attr("width", xScale.bandwidth())
+                   .attr("height", function(d) {
+                                   return yScale(d);
+                   })
+                   .attr("fill", function(d) {
+                                return "rgb(0, 0, " + Math.round(d * 10) + ")";
+                   });
+
+                //Create labels
+                svg.selectAll("text")
+                   .data(dataset)
+                   .enter()
+                   .append("text")
+                   .text(function(d) {
+                                   return d;
+                   })
+                   .attr("text-anchor", "middle")
+                   .attr("x", function(d, i) {
+                                   return xScale(i) + xScale.bandwidth() / 2;
+                   })
+                   .attr("y", function(d) {
+                                   return h - yScale(d) + 14;
+                   })
+                   .attr("font-family", "sans-serif")
+                   .attr("font-size", "11px")
+                   .attr("fill", "white");
+
+
+
+
+                //On click, update with new data			
+                d3.select(".Amazon")
+                        .on("click", function() {
+
+                                //New values for dataset
+            
+                                headerp = document.getElementById('Title')
+            headerp.innerHTML = "Amazon Revenue ($Billion) 2010-2020"
+                                var dataset = [ 34.2, 48.1, 61.1, 74.5, 89, 107, 136, 177.9, 232.9, 280.5, 386.1 ];
+                                //Update scale domain
+                                //Recalibrate the scale domain, given the new max value in dataset
+                                yScale.domain([0, d3.max(dataset)]);
+
+                                //Update all rects
+                                svg.selectAll("rect")
+                                   .data(dataset)
+                                   .transition()
+                                   .delay(function(d, i) {
+                                           return i / dataset.length * 1000;
+                                   })
+                                   .duration(500)
+                                   .attr("y", function(d) {
+                                                   return h - yScale(d);
+                                   })
+                                   .attr("height", function(d) {
+                                                   return yScale(d);
+                                   })
+                                   .attr("fill", function(d) {
+                                                return "rgb(0, 0, " + Math.round(d * 10) + ")";
+                                   });
+
+                                //Update all labels
+                                svg.selectAll("text")
+                                   .data(dataset)
+                                   .transition()
+                                   .delay(function(d, i) {
+                                           return i / dataset.length * 1000;
+                                   })
+                                   .duration(500)
+                                   .text(function(d) {
+                                                   return d;
+                                   })
+                                   .attr("x", function(d, i) {
+                                                   return xScale(i) + xScale.bandwidth() / 2;
+                                   })
+                                   .attr("y", function(d) {
+                                                   return h - yScale(d) + 14;
+                                   });
+                                                                   
+                        });
+
+    //On click, update with new Target data			
+                d3.select(".Target")
+                        .on("click", function() {
+
+                                //New values for dataset
+                                headerp = document.getElementById('Title')
+            headerp.innerHTML = "Target Revenue ($Billion) 2010-2020"
+                                var dataset = [ 34.2, 99, 61.1, 74.5, 89, 107, 136, 177.9, 232.9, 280.5, 386.1 ];
+                                //Update scale domain
+                                //Recalibrate the scale domain, given the new max value in dataset
+                                yScale.domain([0, d3.max(dataset)]);
+
+                                //Update all rects
+                                svg.selectAll("rect")
+                                   .data(dataset)
+                                   .transition()
+                                   .delay(function(d, i) {
+                                           return i / dataset.length * 1000;
+                                   })
+                                   .duration(500)
+                                   .attr("y", function(d) {
+                                                   return h - yScale(d);
+                                   })
+                                   .attr("height", function(d) {
+                                                   return yScale(d);
+                                   })
+                                   .attr("fill", function(d) {
+                                                return "rgb(0, 0, " + Math.round(d * 10) + ")";
+                                   });
+
+                                //Update all labels
+                                svg.selectAll("text")
+                                   .data(dataset)
+                                   .transition()
+                                   .delay(function(d, i) {
+                                           return i / dataset.length * 1000;
+                                   })
+                                   .duration(500)
+                                   .text(function(d) {
+                                                   return d;
+                                   })
+                                   .attr("x", function(d, i) {
+                                                   return xScale(i) + xScale.bandwidth() / 2;
+                                   })
+                                   .attr("y", function(d) {
+                                                   return h - yScale(d) + 14;
+                                   });
+                                                                   
+                        });
+                //On click, update with new Wal-Mart data			
+                d3.select(".Wal-Mart")
+                        .on("click", function() {
+
+                                //New values for dataset
+                                headerp = document.getElementById('Title')
+            headerp.innerHTML = "Wal-Mart Revenue ($Billion) 2010-2020"
+                                var dataset = [ 34.2, 99, 61.1, 74.5, 89, 107, 136, 177.9, 232.9, 280.5, 386.1 ];
+                                //Update scale domain
+                                //Recalibrate the scale domain, given the new max value in dataset
+                                yScale.domain([0, d3.max(dataset)]);
+
+                                //Update all rects
+                                svg.selectAll("rect")
+                                   .data(dataset)
+                                   .transition()
+                                   .delay(function(d, i) {
+                                           return i / dataset.length * 1000;
+                                   })
+                                   .duration(500)
+                                   .attr("y", function(d) {
+                                                   return h - yScale(d);
+                                   })
+                                   .attr("height", function(d) {
+                                                   return yScale(d);
+                                   })
+                                   .attr("fill", function(d) {
+                                                return "rgb(0, 0, " + Math.round(d * 10) + ")";
+                                   });
+
+                                //Update all labels
+                                svg.selectAll("text")
+                                   .data(dataset)
+                                   .transition()
+                                   .delay(function(d, i) {
+                                           return i / dataset.length * 1000;
+                                   })
+                                   .duration(500)
+                                   .text(function(d) {
+                                                   return d;
+                                   })
+                                   .attr("x", function(d, i) {
+                                                   return xScale(i) + xScale.bandwidth() / 2;
+                                   })
+                                   .attr("y", function(d) {
+                                                   return h - yScale(d) + 14;
+                                   });
+                                                                   
+                        });
+        </script>  
+        </div>
+        <div class="column" style="background-color:#96D1CD;">
+            <h2>Column 2</h2>
+            <p>Datalkdsajf;lkdsjf;lkdsjf;dkfj;lkdfj;lkdsajf;kdsjf;lkdsjf;lkdsa;jflkdsajf;lkdsajf;lkdsajf;lkdsajf;ldsakjf;ldsakjf;ldsakjf;ldsakjf;ldsakjf;ldsakjf;ldsakjf;ldsakjf;lkdsajf;ldsakjf;ldsakjf;ldsakjf;lkdsajf;ldsakjf;ldsakjf;lkdsajf;ldsakfj..</p>
+        </div>
+    </div>
+ </body>
+</html>
+    
+</body>
+</html>
