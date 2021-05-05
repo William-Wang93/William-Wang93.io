@@ -94,7 +94,6 @@ body {
   
   header h1 {
     font-size: 42px;
-    margin-bottom: 5px;
     margin-top: 0;
     font-family:Futura;
     font-weight: 900;
@@ -393,10 +392,10 @@ body {
   color: white;
 }
   .Content-Blog{
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     font-family: nyt-imperial,georgia,'times new roman',times,serif;
-    line-height: 1.75rem;
-    font-weight: 500;
+    line-height: 1.25rem;
+    font-weight: 400;
     color: #333;
    
   }
