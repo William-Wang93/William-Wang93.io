@@ -382,7 +382,6 @@ body {
   .Project-Button{
   background-color: white;
   border-radius: 10px;
-  padding: 20px;
   color: #314570;
   border-color: #314570;
 }
@@ -422,9 +421,22 @@ body {
     justify-content: center;
     font-family: 'Amster-Fina', serif;
     font-size: 2.05rem;
-    line-spacing:.05em;
     line-height: 2;
     display: block;
     font-weight: bold;
     
+  }
+
+
+  .tool{
+    text-align: start;
+    font-style:italic;
+    padding-top:10px;
+  }
+
+  .date {
+    text-align: start;
+    font-style: normal;
+    padding-top: 10px;
+    font-weight: bold;
   }
