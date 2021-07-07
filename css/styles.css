@@ -15,12 +15,12 @@ body {
   }
 
   nav a {
-    color: #314570;
+    color: #00000;
     font-family: futura-pt;
     margin-left: 20px;
     text-decoration: none;
     position: relative;
-    right: -45%
+    right: -75%
   }
   
   nav a:hover {
@@ -39,7 +39,7 @@ body {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    color: #314570;
+    color: #000000;
       nav {
     display: flex;
     justify-content: space-between;
@@ -56,7 +56,7 @@ body {
     margin-left: 20px;
     text-decoration: none;
     position: relative;
-    right: -45%
+    right: -55%
   }
   
   nav a:hover {
@@ -79,13 +79,13 @@ body {
   }
   
   header h1 {
-    font-size: 42px;
+    font-size: 30px;
     margin-bottom: 5px;
     margin-top: 0;
     font-family:Futura;
     font-weight: 900;
     text-transform: uppercase;
-    margin-left: 65px;
+    margin-left: 30px;
     font-color: #314570;
     
     
@@ -98,7 +98,7 @@ body {
     font-family:Futura;
     font-weight: 900;
     text-transform: uppercase;
-    margin-left: 65px;
+    margin-left: px;
     font-color: #314570;
     
     
